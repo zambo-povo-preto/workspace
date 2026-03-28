@@ -1,0 +1,23 @@
+# Define a imagem base
+FROM node:20-bookworm
+
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Cria o diretório para certificados SSL compartilhados
+RUN mkdir -p /app/cert
+
+# Copia o certificado CA raiz do mkcert para o contêiner
+COPY ./cert/rootCA.pem /usr/local/share/ca-certificates/mkcert-root.crt
+
+# Adiciona o certificado ao bundle do sistema Linux
+RUN update-ca-certificates
+
+# Configura o Node.js para usar os certificados do sistema (por padrão o Node.js não os usa)
+ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+# Atualiza o sistema e instala o pacote 'concurrently' globalmente para workers service binding
+RUN npm install -g concurrently
+
+# Define o comando padrão para iniciar o contêiner
+CMD ["sh", "-c", "npm install && npm run dev"]

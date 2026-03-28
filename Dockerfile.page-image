@@ -1,0 +1,8 @@
+# Define a imagem base
+FROM node:20-alpine
+
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Define o comando padrão para iniciar o contêiner
+CMD ["sh", "-c", "npm install && npm run dev"]
