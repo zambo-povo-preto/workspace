@@ -21,7 +21,7 @@ Instale as seguintes extensões no VsCode para melhorar a produtividade:
 - **Material Icon Theme** - Extensão para ícones de arquivos. [[Instalação](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)]
 - **Omni Theme** - Extensão para temas de interface. [[Instalação](https://marketplace.visualstudio.com/items?itemName=rocketseat.theme-omni)]
 
-## 🧑‍💻 Configuração do Git no Terminal
+## 🧑‍💻 Configuração do Git
 
 Configure seu nome de usuário e email para o Git:
 
