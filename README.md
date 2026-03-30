@@ -111,6 +111,7 @@ cp "$(mkcert -CAROOT)/rootCA.pem" ./cert/
 
 ### Como funciona o fluxo de certificados
 
+```plain
 ┌─────────────────────────────────────────┐
 │  Máquina Local (macOS/Windows/Linux)    │
 │                                         │
@@ -136,6 +137,7 @@ cp "$(mkcert -CAROOT)/rootCA.pem" ./cert/
 │  │  --https-key-path=./cert/key.pem     │
 │  └──────────────────────────────┘       │
 └─────────────────────────────────────────┘
+```
 
 ## 🐳 Configuração do Docker
 
