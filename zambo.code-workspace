@@ -1,57 +1,58 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"editor.tabSize": 2,
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "biomejs.biome",
-		"editor.inlineSuggest.enabled": true,
-		"editor.fontFamily": "Fira Code",
-		"editor.fontLigatures": true,
-		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": "explicit"
-		},
-		"terminal.integrated.fontFamily": "monospace",
-		"workbench.iconTheme": "material-icon-theme",
-		"workbench.startupEditor": "none",
-		"workbench.colorTheme": "Omni",
-		"github.copilot.enable": {
-			"*": true,
-			"plaintext": false,
-			"markdown": true,
-			"scminput": false,
-			"yaml": false,
-			"typescriptreact": true,
-			"typescript": true,
-			"code-runner-output": false,
-			"json": true,
-			"properties": false,
-			"http": false,
-			"dockerfile": true
-		},
-		"material-icon-theme.folders.associations": {
-			"repositories": "resource",
-			"infra": "app",
-			"entities": "class",
-			"useCases": "functions",
-			"migrations": "tools",
-			"http": "container",
-			"dtos": "typescript",
-			"mappers": "resolver",
-			"factories": "class",
-			"typeorm": "database",
-			"implementations": "connection",
-			"parsers": "rules",
-			"dictionaries": "I18n",
-			"stores": "database"
-		},
-		"material-icon-theme.files.associations": {
-			"tsconfig.json": "tune",
-			".dev.vars": "tune",
-			".dev.vars.sample": "tune"
-		}
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.codeActionsOnSave": {
+      "quickfix.biome.nursery.useNodejsImportProtocol": "explicit",
+      "quickfix.biome.style.useAsConstAssertion": "explicit"
+    },
+    "terminal.integrated.fontFamily": "monospace",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Omni",
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": true,
+      "scminput": false,
+      "yaml": false,
+      "typescriptreact": true,
+      "typescript": true,
+      "code-runner-output": false,
+      "json": true,
+      "properties": false,
+      "http": false,
+      "dockerfile": true
+    },
+    "material-icon-theme.folders.associations": {
+      "repositories": "resource",
+      "infra": "app",
+      "entities": "class",
+      "useCases": "functions",
+      "migrations": "tools",
+      "http": "container",
+      "dtos": "typescript",
+      "mappers": "resolver",
+      "factories": "class",
+      "typeorm": "database",
+      "implementations": "connection",
+      "parsers": "rules",
+      "dictionaries": "I18n",
+      "stores": "database"
+    },
+    "material-icon-theme.files.associations": {
+      "tsconfig.json": "tune",
+      ".dev.vars": "tune",
+      ".dev.vars.sample": "tune"
+    }
+  }
 }

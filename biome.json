@@ -1,0 +1,37 @@
+{
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noStaticOnlyClass": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentWidth": 2,
+    "indentStyle": "space",
+    "lineWidth": 80
+  },
+  "files": {
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".next",
+      "build",
+      "coverage",
+      "api/node_modules",
+      "site/node_modules",
+      "panel/node_modules",
+      "blog/node_modules",
+      "mailhog-api/node_modules",
+      ".git",
+      "cert",
+      "cloudflare-env.d.ts"
+    ]
+  }
+}
