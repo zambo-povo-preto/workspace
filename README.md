@@ -10,6 +10,7 @@ Antes de iniciar o desenvolvimento, certifique-se de ter as seguintes ferramenta
 - **npm** (gerenciador de pacotes do Node.js) - Instalado junto com o Node.js
 - **Git** - [[Instalação](https://git-scm.com/downloads)]
 - **Docker Desktop** - [[Instalação](https://www.docker.com/get-started)]
+- **Infisical CLI** - [[Instalação](https://infisical.com/docs/cli/overview)]
 
 ## 🚀 Configuração do VsCode
 
