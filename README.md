@@ -155,10 +155,17 @@ docker build -f Dockerfile.worker-image -t worker-image .
 docker build -f Dockerfile.page-image -t page-image .
 ```
 
-## 🏁 Iniciando o Ambiente de Desenvolviment
+## 🚀 Iniciando o Ambiente de Desenvolviment
 
 Garante que o Docker Desktop esteja rodando e execute o comando abaixo para iniciar os containers:
 
 ```shell
 npm start
 ```
+
+## 🧑‍💻 Acessando os Workers
+
+- API: [https://localhost:3333](https://localhost:3333)
+- Site: [https://localhost:3000](https://localhost:3000)
+- Panel: [https://localhost:3001](https://localhost:3001)
+- Blog: [https://localhost:3002](https://localhost:3002)
