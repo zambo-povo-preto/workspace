@@ -166,6 +166,7 @@ npm start
 ## 🧑‍💻 Acessando os Workers
 
 - API: [https://localhost:3333](https://localhost:3333)
+- Mailhog (para visualizar emails enviados pela API): [http://localhost:8025](http://localhost:8025)
 - Site: [https://localhost:3000](https://localhost:3000)
 - Panel: [https://localhost:3001](https://localhost:3001)
 - Blog: [https://localhost:3002](https://localhost:3002)
