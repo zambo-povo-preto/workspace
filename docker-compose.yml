@@ -2,7 +2,6 @@ services:
   mailhog:
     platform: linux/amd64 # MailHog não possui imagem ARM oficial
     image: mailhog/mailhog
-    container_name: mailhog
     ports:
       - "1025:1025" # SMTP (envio)
       - "8025:8025" # Web UI (leitura)
@@ -11,7 +10,7 @@ services:
     image: node:20-bookworm
     working_dir: /app
     volumes:
-      - ./mailhog:/app
+      - ./mailhog-api:/app
     command: sh -c "npm install && npm run dev"
     ports:
       - "8788:8788"
@@ -29,8 +28,6 @@ services:
       - ./cert:/app/cert
     ports:
       - "3333:3333"
-    depends_on:
-      - db
 
   page-site:
     image: page-image:latest
@@ -38,7 +35,7 @@ services:
       - ./site/package.json:/app/package.json
       - ./site/next.config.ts:/app/next.config.ts
       - ./site/tsconfig.json:/app/tsconfig.json
-      - ./site/.env.local:/app/.env.local
+      - ./site/.env:/app/.env
       - ./site/public:/app/public
       - ./site/src:/app/src
     ports:
@@ -50,7 +47,7 @@ services:
       - ./panel/package.json:/app/package.json
       - ./panel/next.config.ts:/app/next.config.ts
       - ./panel/tsconfig.json:/app/tsconfig.json
-      - ./panel/.env.local:/app/.env.local
+      - ./panel/.env:/app/.env
       - ./panel/public:/app/public
       - ./panel/src:/app/src
     ports:
@@ -62,7 +59,7 @@ services:
       - ./blog/package.json:/app/package.json
       - ./blog/next.config.ts:/app/next.config.ts
       - ./blog/tsconfig.json:/app/tsconfig.json
-      - ./blog/.env.local:/app/.env.local
+      - ./blog/.env:/app/.env
       - ./blog/public:/app/public
       - ./blog/src:/app/src
     ports:

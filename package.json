@@ -1,0 +1,19 @@
+{
+	"name": "zambo",
+	"version": "1.0.0",
+	"description": "Ambiente de desenvolvimento local. Inclui docker-compose, scripts de setup e workspace do VS Code para facilitar o onboarding e padronizar o setup dos devs.",
+	"homepage": "https://github.com/zambo/workspace#readme",
+	"bugs": {
+		"url": "https://github.com/zambo/workspace/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zambo/workspace.git"
+	},
+	"license": "MIT",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"sync:env": "bash sync-local-env.sh"
+	}
+}

@@ -34,7 +34,6 @@ git config --global user.email "seu@email.com"
 
 Escolha um diretório na sua máquina para clonar os repositórios. Execute os seguintes comandos:
 
-
 ```shell
 git clone https://github.com/zambo-povo-preto/workspace.git zambo
 cd zambo
@@ -42,4 +41,116 @@ git clone --branch dev https://github.com/zambo-povo-preto/api.git
 git clone --branch dev https://github.com/zambo-povo-preto/site.git
 git clone --branch dev https://github.com/zambo-povo-preto/panel.git
 git clone --branch dev https://github.com/zambo-povo-preto/blog.git
+```
+
+## 🔑 Variáveis de Ambiente
+
+Adicione o token do Infisical na sua máquina (obtenha o token com um Owner)
+
+```shell
+export INFISICAL_TOKEN=""
+```
+
+Na pasta `zambo` baixe as variáveis de ambiente:
+
+```shell
+npm run sync:env
+```
+
+> **Observação:** O script sync:env baixa as variáveis do Infisical e cria o .dev.vars na pasta `📁api`
+
+
+## 🔒 Configurando Certificados SSL
+
+O projeto usa certificados SSL auto-assinados para desenvolvimento local. Siga os passos abaixo:
+
+### Instalando mkcert no Mac OS ou Linux
+
+```shell
+brew install mkcert
+mkcert -install
+```
+
+### Instalando mkcert no Windows
+
+```shell
+choco install mkcert
+mkcert -install
+```
+
+### Gerando Certificados Locais
+
+Na raiz do projeto, crie a pasta cert e gere os certificados para localhost e todos os hosts dos workers:
+
+```shell
+mkdir -p cert
+cd cert
+mkcert localhost 127.0.0.1 ::1 worker-api
+mv localhost+3.pem cert.pem
+mv localhost+3-key.pem key.pem
+cd ..
+```
+
+### Copiando o Certificado CA Raiz
+
+O Docker precisa do arquivo rootCA.pem para validar os certificados dentro dos containers. Siga os passos abaixo:
+
+```shell
+cp "$(mkcert -CAROOT)/rootCA.pem" ./cert/
+```
+
+> Importante: Os certificados gerados serão:
+> Instalados no seu sistema (reconhecidos pelo browser)
+> Compartilhados com os containers Docker via volumes (para os workers funcionarem)
+
+### Como funciona o fluxo de certificados
+
+┌─────────────────────────────────────────┐
+│  Máquina Local (macOS/Windows/Linux)    │
+│                                         │
+│  1. mkcert gera certificados            │
+│  2. mkcert -install → Keychain          │
+│  3. Browser reconhece                   │
+│                                         │
+│  /zambo/cert/                           │
+│    ├── cert.pem                         │
+│    └── key.pem                          │
+│         │                               │
+│         │ Volume compartilhado          │
+│         ↓                               │
+│  ┌──────────────────────────────┐       │
+│  │  Docker Container (worker)   │       │
+│  │                              │       │
+│  │  /app/cert/                  │       │
+│  │    ├── cert.pem              │       │
+│  │    └── key.pem               │       │
+│  │                              │       │
+│  │  Wrangler usa:               │       │
+│  │  --https-cert-path=./cert/cert.pem   │
+│  │  --https-key-path=./cert/key.pem     │
+│  └──────────────────────────────┘       │
+└─────────────────────────────────────────┘
+
+## 🐳 Configuração do Docker
+
+Construa as imagens base necessárias para os workers e páginas:
+
+**Subir image base para workers api**
+
+```shell
+docker build -f Dockerfile.worker-image -t worker-image .
+```
+
+**Subir image base para páginas**
+
+```shell
+docker build -f Dockerfile.page-image -t page-image .
+```
+
+## 🏁 Iniciando o Ambiente de Desenvolviment
+
+Garante que o Docker Desktop esteja rodando e execute o comando abaixo para iniciar os containers:
+
+```shell
+docker-compose up -d
 ```
