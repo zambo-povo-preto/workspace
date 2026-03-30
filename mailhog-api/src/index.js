@@ -30,6 +30,6 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(env.PORT, () => {
   console.log(`Email server listening on port ${process.env.PORT}`);
 });
