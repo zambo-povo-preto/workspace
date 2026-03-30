@@ -10,7 +10,9 @@ services:
     image: node:20-bookworm
     working_dir: /app
     volumes:
-      - ./mailhog-api:/app
+      - ./mailhog-api/package.json:/app/package.json
+      - ./mailhog-api/src/index.js:/app/src/index.js
+      - /app/node_modules
     command: sh -c "npm install && npm run dev"
     ports:
       - "8788:8788"
@@ -35,6 +37,7 @@ services:
       - ./site/package.json:/app/package.json
       - ./site/next.config.ts:/app/next.config.ts
       - ./site/tsconfig.json:/app/tsconfig.json
+      - ./panel/postcss.config.mjs:/app/postcss.config.mjs
       - ./site/.env:/app/.env
       - ./site/public:/app/public
       - ./site/src:/app/src
@@ -47,6 +50,7 @@ services:
       - ./panel/package.json:/app/package.json
       - ./panel/next.config.ts:/app/next.config.ts
       - ./panel/tsconfig.json:/app/tsconfig.json
+      - ./panel/postcss.config.mjs:/app/postcss.config.mjs
       - ./panel/.env:/app/.env
       - ./panel/public:/app/public
       - ./panel/src:/app/src
@@ -59,6 +63,7 @@ services:
       - ./blog/package.json:/app/package.json
       - ./blog/next.config.ts:/app/next.config.ts
       - ./blog/tsconfig.json:/app/tsconfig.json
+      - ./panel/postcss.config.mjs:/app/postcss.config.mjs
       - ./blog/.env:/app/.env
       - ./blog/public:/app/public
       - ./blog/src:/app/src

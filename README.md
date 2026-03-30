@@ -45,19 +45,25 @@ git clone --branch dev https://github.com/zambo-povo-preto/blog.git
 
 ## 🔑 Variáveis de Ambiente
 
-Adicione o token do Infisical na sua máquina (obtenha o token com um Owner)
+Na raiz da pasta `zambo`, copie o arquivo `.env.example` para `.env`:
 
 ```shell
-export INFISICAL_TOKEN=""
+cp .env.example .env
 ```
 
-Na pasta `zambo` baixe as variáveis de ambiente:
+Obtenha o token do Infisical com um Owner e adicione-o no arquivo `.env`:
+
+```env
+INFISICAL_TOKEN="seu-token-aqui"
+```
+
+Depois, baixe as variáveis de ambiente do Infisical:
 
 ```shell
 npm run sync:env
 ```
 
-> **Observação:** O script sync:env baixa as variáveis do Infisical e cria o .dev.vars na pasta `📁api`
+> **Observação:** O script `sync:env` carrega o token do arquivo `.env` e sincroniza as variáveis do Infisical para o `.dev.vars` na pasta `📁api`
 
 
 ## 🔒 Configurando Certificados SSL
@@ -152,5 +158,5 @@ docker build -f Dockerfile.page-image -t page-image .
 Garante que o Docker Desktop esteja rodando e execute o comando abaixo para iniciar os containers:
 
 ```shell
-docker-compose up -d
+npm start
 ```

@@ -14,6 +14,8 @@
 	"type": "commonjs",
 	"main": "index.js",
 	"scripts": {
+		"prestart": "bash sync-local-env.sh",
+		"start": "docker compose up -d",
 		"sync:env": "bash sync-local-env.sh"
 	}
 }

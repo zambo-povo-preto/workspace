@@ -1,7 +1,31 @@
 #!/usr/bin/env bash
 set -e
 
-ENV="dev"
+# ======================================
+# CARREGAR VARIÁVEIS DO .env
+# ======================================
+
+if [ -f ".env" ]; then
+  set -a
+  source .env
+  set +a
+  echo "✅ Variáveis carregadas do .env"
+else
+  echo "⚠️  Arquivo .env não encontrado na raiz"
+  echo "    Execute: cp .env.example .env"
+  exit 1
+fi
+
+# ======================================
+# VERIFICAR SE INFISICAL_TOKEN ESTÁ DEFINIDO
+# ======================================
+
+if [ -z "$INFISICAL_TOKEN" ]; then
+  echo "❌ Erro: INFISICAL_TOKEN não está configurado"
+  echo "    Adicione seu token no arquivo .env"
+  exit 1
+fi
+
 ROOT_DIR=$(pwd)
 
 echo ""
