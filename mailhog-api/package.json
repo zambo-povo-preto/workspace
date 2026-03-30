@@ -1,21 +1,21 @@
 {
-	"name": "mailhog-api",
-	"version": "1.0.0",
-	"description": "Simple Node.js utility to send emails locally using SMTP",
-	"main": "src/index.js",
-	"scripts": {
-		"dev": "nodemon src/index.js"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"type": "module",
-	"dependencies": {
-		"dotenv": "^17.2.1",
-		"express": "^5.1.0",
-		"nodemailer": "^7.0.5"
-	},
-	"devDependencies": {
-		"nodemon": "^3.1.10"
-	}
+  "name": "mailhog-api",
+  "version": "1.0.0",
+  "description": "Simple Node.js utility to send emails locally using SMTP",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
