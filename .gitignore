@@ -2,6 +2,9 @@ api
 site
 panel
 blog
+cert
+node_modules
+dist
 
 # SO Files
 *.DS_Store
