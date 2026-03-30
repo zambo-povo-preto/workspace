@@ -72,7 +72,7 @@ npm run sync:env
 > **Observação:** O script `sync:env` carrega o token do arquivo `.env` e sincroniza as variáveis do Infisical para o `.dev.vars` na pasta `📁api`
 
 
-## 🔒 Configurando Certificados SSL
+## 🔒 Configurando Certificados SSL no Mac OS ou Linux
 
 O projeto usa certificados SSL auto-assinados para desenvolvimento local. Siga os passos abaixo:
 
@@ -85,8 +85,15 @@ mkcert -install
 
 ### Instalando mkcert no Windows
 
-```shell
-choco install mkcert
+Instalar via Scoop (mantém o binário em PATH)
+
+```powershell
+# instalar Scoop (se não tiver)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+scoop bucket add extras
+scoop install mkcert
 mkcert -install
 ```
 
@@ -161,7 +168,7 @@ docker build -f Dockerfile.worker-image -t worker-image .
 docker build -f Dockerfile.page-image -t page-image .
 ```
 
-## 🚀 Iniciando o Ambiente de Desenvolviment
+## 🚀 Iniciando o Ambiente de Desenvolvimento
 
 Garante que o Docker Desktop esteja rodando e execute o comando abaixo para iniciar os containers:
 
