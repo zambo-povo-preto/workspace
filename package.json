@@ -14,9 +14,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "prestart": "bash sync-local-env.sh",
+    "prestart": "node sync-local-env.js",
     "start": "docker compose up -d",
-    "sync:env": "bash sync-local-env.sh",
+    "sync:env": "node sync-local-env.js",
     "lint": "biome check",
     "lint:fix": "biome check --write --unsafe"
   }

@@ -10,7 +10,6 @@ Antes de iniciar o desenvolvimento, certifique-se de ter as seguintes ferramenta
 - **npm** (gerenciador de pacotes do Node.js) - Instalado junto com o Node.js
 - **Git** - [[Instalação](https://git-scm.com/downloads)]
 - **Docker Desktop** - [[Instalação](https://www.docker.com/get-started)]
-- **Infisical CLI** - [[Instalação](https://infisical.com/docs/cli/overview)]
 
 ## 🚀 Configuração do VsCode
 
@@ -45,6 +44,12 @@ git clone --branch dev https://github.com/zambo-povo-preto/blog.git
 ```
 
 ## 🔑 Variáveis de Ambiente
+
+Instale o Infisical CLI globalmente para gerenciar as variáveis de ambiente do projeto:
+
+```shell
+npm install -g @infisical/cli
+```
 
 Na raiz da pasta `zambo`, copie o arquivo `.env.example` para `.env`:
 
