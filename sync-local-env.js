@@ -52,16 +52,37 @@ for (const p of PROJECTS) {
   console.log(`➡️  ${p.path} → ${envFile}`);
 
   const args = [
-    'export',
-    '--domain', 'https://infisical-production-ac1b.up.railway.app',
-    '--projectId', p.id,
-    '--env', ENV,
-    '--output-file', outFile
+    "export",
+    "--domain",
+    "https://infisical-production-ac1b.up.railway.app",
+    "--projectId",
+    p.id,
+    "--env",
+    ENV,
+    "--output-file",
+    outFile,
   ];
 
-  const res = spawnSync('infisical', args, { stdio: 'inherit' });
+  let res = spawnSync("infisical", args, {
+    stdio: "inherit",
+    env: process.env,
+    shell: false,
+  });
+  if (res.error && res.error.code === "ENOENT") {
+    console.warn(
+      '⚠️  "infisical" não encontrado no PATH — tentando via npx...',
+    );
+    // no Windows usar shell:true com npx costuma funcionar melhor
+    res = spawnSync("npx", ["infisical", ...args], {
+      stdio: "inherit",
+      env: process.env,
+      shell: true,
+    });
+  }
+
   if (res.error || res.status !== 0) {
     console.error(`❌ Falha ao executar infisical para ${p.path}`);
+    if (res.error) console.error("error:", res.error.message);
     process.exit(res.status || 1);
   }
 }
