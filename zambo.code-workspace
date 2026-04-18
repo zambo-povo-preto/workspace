@@ -15,6 +15,7 @@
       "quickfix.biome.nursery.useNodejsImportProtocol": "explicit",
       "quickfix.biome.style.useAsConstAssertion": "explicit"
     },
+    "explorer.compactFolders": false,
     "terminal.integrated.fontFamily": "monospace",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
