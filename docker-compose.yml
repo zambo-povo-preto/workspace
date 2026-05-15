@@ -1,4 +1,15 @@
 services:
+  db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: zambo
+    volumes:
+      - ./api/migrations/0001_create_users_table.sql:/docker-entrypoint-initdb.d/0001_init_db.sql
+
   mailhog:
     platform: linux/amd64 # MailHog não possui imagem ARM oficial
     image: mailhog/mailhog
